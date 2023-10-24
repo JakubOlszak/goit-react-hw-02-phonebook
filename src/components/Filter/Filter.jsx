@@ -1,22 +1,22 @@
-import css from './Filter.module.css';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Div, Label, Input } from './Filter.styled';
 
-export const Filter = ({ filter, handleChange }) => {
+// Компонент фильтрации контактов
+function Filter({ value, onChangeFilter }) {
   return (
-    <label className={css.contactLabel}>
-      Find contact by name
-      <input
-        type="text"
-        name="filter"
-        value={filter}
-        onChange={handleChange}
-        className={css.contactInput}
-      />
-    </label>
+    <Div>
+      <Label>
+        Find contacts by name
+        <Input type="text" value={value} onChange={onChangeFilter} />
+      </Label>
+    </Div>
   );
-};
+}
 
 Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
 };
+
+export default Filter;
